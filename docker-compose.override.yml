@@ -1,0 +1,8 @@
+services:
+  api:
+    build: .
+    # Bind mounts
+    volumes:
+      - ./:/app:ro
+      - ./downloads:/app/downloads
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
